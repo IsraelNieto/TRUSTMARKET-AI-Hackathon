@@ -1,0 +1,1724 @@
+/* === RESET BÁSICO === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #fff;
+}
+
+/* === NAVBAR === */
+.navbar {
+  width: 100%;
+  background: #2c3e50;
+  color: #fff;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo img {
+  height: 40px;
+  width: auto;
+  margin-right: 8px;
+}
+
+.navbar-logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-list li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease-in;
+}
+
+.navbar-list li a:hover {
+  color: #1abc9c;
+}
+
+/* === BOTONES DE SESIÓN === */
+.navbar-buttons {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.navbar-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.navbar-btn-primary {
+  background: #1abc9c;
+  border: none;
+  color: white;
+}
+
+.navbar-btn-primary:hover {
+  background: #16a085;
+}
+
+.navbar-btn-secondary {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.navbar-btn-secondary:hover {
+  background: #34495e;
+}
+
+/* === NAVBAR HAMBURGUESA (MÓVIL) === */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.navbar-bar {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .navbar-list {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #2c3e50;
+    flex-direction: column;
+    width: 200px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    padding: 1rem;
+  }
+
+  .navbar-list.open {
+    transform: translateX(0);
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}
+
+/* === HERO SLIDER === */
+.hero {
+  margin-top: 70px; /* compensar navbar fijo */
+}
+
+.hero-slider {
+  position: relative;
+  overflow: hidden;
+  height: 90vh;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide.active {
+  left: 0;
+  opacity: 1;
+}
+
+.slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slide-text {
+  position: absolute;
+  bottom: 15%;
+  left: 10%;
+  color: #fff;
+  max-width: 500px;
+  background: rgba(0,0,0,0.5);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.slide-text h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.2rem;
+  background: #1abc9c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.cta:hover {
+  background: #16a085;
+}
+
+/* === BOTONES SLIDER === */
+.prev,
+.next {
+  position: absolute;
+  top: 50%;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+.prev:hover, .next:hover {
+  background: rgba(0,0,0,0.7);
+}
+
+/* === BANNER EXTRA CLIENTES === */
+.products-banner {
+  position: relative;
+  margin: 3rem auto;
+  max-width: 1200px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.banner-slider {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.banner-slide {
+  min-width: 100%;
+  display: none;
+}
+
+.banner-slide.active {
+  display: block;
+}
+
+.banner-slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.banner-content {
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  color: #fff;
+}
+
+.banner-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.2rem;
+  background: #e67e22;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.banner-btn:hover {
+  background: #d35400;
+}
+
+/* === SECCIONES === */
+.section {
+  padding: 3rem 2rem;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.section p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* === APP FLOTANTE === */
+.floating-app {
+  position: fixed;
+  bottom: 80px; /* más arriba del chatbot */
+  right: 20px;
+  z-index: 9999;
+  background: #243447;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+  max-width: 280px;
+  text-align: center;
+}
+
+.floating-app h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #1abc9c; /* verde acento */
+}
+
+.floating-app p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #ddd;
+}
+
+.floating-app .app-btn {
+  display: inline-block;
+  background: #1abc9c;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.floating-app .app-btn:hover {
+  background: #16a085;
+}
+
+/* === CHATBOT PERSONALIZADO (Estilo Definitivo) === */
+
+/* Contenedor principal que posiciona el chatbot */
+#app-chatbot-container #n8n-chat-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000;
+}
+
+/* El botón flotante */
+#app-chatbot-container #n8n-chat > button {
+  background-color: #1abc9c !important;
+  border-radius: 50% !important;
+  width: 60px !important;
+  height: 60px !important;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3) !important;
+  transition: transform 0.3s ease, background-color 0.3s ease !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Ocultamos el ícono SVG por defecto de n8n */
+#app-chatbot-container #n8n-chat > button svg {
+  display: none !important;
+}
+
+/* Añadimos nuestro ícono de Material Icons */
+#app-chatbot-container #n8n-chat > button::before {
+  font-family: 'Material Icons';
+  content: 'chat';
+  font-size: 28px;
+  color: white;
+}
+
+/* Hover del botón */
+#app-chatbot-container #n8n-chat > button:hover {
+  background-color: #16a085 !important;
+  transform: scale(1.1);
+}
+
+/* La ventana del chat (iframe) */
+#app-chatbot-container #n8n-chat iframe {
+  border-radius: 12px !important;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.2) !important;
+  border: none !important;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease !important;
+  visibility: hidden;
+}
+
+/* La ventana del chat cuando está abierta */
+#app-chatbot-container #n8n-chat[data-chat-open="true"] iframe {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* === APP FLOTANTE (tarjeta moderna) === */
+.floating-app {
+  position: fixed;
+  bottom: 80px; /* lo deja arriba del chatbot */
+  left: 20px;
+  z-index: 9999;
+  background: #243447;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+  max-width: 280px;
+  text-align: center;
+  animation: slideIn 0.6s ease-out;
+}
+
+.floating-app h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #1abc9c;
+}
+
+.floating-app p {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: #ddd;
+}
+
+.floating-app .app-btn {
+  display: inline-block;
+  background: #1abc9c;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.floating-app .app-btn:hover {
+  background: #16a085;
+}
+
+/* Animación de entrada */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* === ESTILOS PARA LA PÁGINA DE REGISTRO === */
+
+/* Contenedor principal para centrar el formulario */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 80px; /* Evita que el navbar tape el contenido */
+  background-color: #f4f7f6; /* Un fondo suave para la página */
+}
+
+/* Contenedor del formulario con sombra y bordes redondeados */
+.form-container {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px;
+  margin: 2rem;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2c3e50;
+  font-size: 1.8rem;
+}
+
+/* Grupos de formulario (label + input) */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Estilo unificado para inputs y select */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Efecto de foco para los inputs */
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #1abc9c; /* Color de acento principal */
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+}
+
+/* Botón de registro */
+.submit-btn {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  background-color: #1abc9c; /* Color primario */
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #16a085; /* Tono más oscuro al pasar el cursor */
+  transform: translateY(-2px);
+}
+
+/* === ESTILOS PARA EL LOGO DEL FORMULARIO === */
+
+.form-logo {
+  text-align: center; /* Centra la imagen horizontalmente */
+  margin-bottom: 1.5rem; /* Añade espacio entre el logo y el título */
+}
+
+.form-logo img {
+  max-width: 150px; /* Ajusta el tamaño del logo como prefieras */
+  height: auto;     /* Mantiene la proporción de la imagen */
+}
+
+/* Ajuste opcional para el título 'Regístrate' */
+.form-container h2 {
+  margin-top: 0; /* Quitamos el margen superior para que no haya tanto espacio */
+}
+
+/* === ESTILOS PARA NOTAS AL PIE DEL FORMULARIO === */
+
+.form-footer-note {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-footer-note a {
+  color: #1abc9c; /* Usa el color de acento principal */
+  font-weight: 600;
+  text-decoration: none;
+  transition: text-decoration 0.2s;
+}
+
+.form-footer-note a:hover {
+  text-decoration: underline;
+}
+
+/* === ESTILOS PARA LA PÁGINA DE EXPLORAR PRODUCTOS === */
+
+/* Contenedor principal con layout de dos columnas (productos y carrito) */
+.products-container {
+  display: grid;
+  grid-template-columns: 1fr 350px; /* Columna de productos y columna de carrito */
+  gap: 2rem;
+  max-width: 1400px;
+  margin: auto;
+  padding: 2rem;
+  padding-top: 90px; /* Espacio para el navbar fijo */
+}
+
+/* --- Columna Izquierda: Búsqueda y Productos --- */
+
+/* Botón para volver */
+.back-btn {
+  grid-column: 1 / -1; /* Ocupa todo el ancho */
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  color: #1abc9c;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: #16a085;
+}
+
+/* Barra de búsqueda con estilo profesional */
+.search-bar {
+  grid-column: 1 / 2; /* Solo en la primera columna */
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.search-bar input {
+  flex-grow: 1; /* Ocupa el espacio disponible */
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px 0 0 8px; /* Redondeo a la izquierda */
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-bar input:focus {
+  border-color: #1abc9c;
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+}
+
+.search-bar button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  background: #1abc9c;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 0 8px 8px 0; /* Redondeo a la derecha */
+  transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+  background: #16a085;
+}
+
+/* Rejilla de productos */
+.products-grid {
+  grid-column: 1 / 2; /* Solo en la primera columna */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjeta de producto individual */
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.product-card h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.product-card p {
+  color: #555;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  flex-grow: 1; /* Empuja el botón hacia abajo */
+}
+
+.product-card p strong {
+  color: #333;
+}
+
+.product-card button {
+  width: 100%;
+  padding: 0.7rem;
+  border: none;
+  background-color: #3498db;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+  background-color: #2980b9;
+}
+
+
+/* --- Columna Derecha: Carrito de Compras --- */
+
+.cart {
+  grid-column: 2 / 3; /* Solo en la segunda columna */
+  background: #f4f7f6;
+  padding: 1.5rem;
+  border-radius: 12px;
+  position: sticky; /* Fija el carrito al hacer scroll */
+  top: 90px; /* Distancia desde el top (navbar) */
+  height: fit-content;
+}
+
+.cart h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.cart-items {
+  max-height: 400px;
+  overflow-y: auto; /* Scroll si hay muchos items */
+  margin-bottom: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item span {
+  color: #333;
+}
+
+.cart-item button {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cart-item button:hover {
+  color: #c0392b;
+}
+
+.cart-total {
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 1.5rem 0;
+  color: #2c3e50;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  background-color: #27ae60;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.checkout-btn:hover {
+  background-color: #229954;
+}
+
+/* --- RESPONSIVIDAD PARA MÓVILES --- */
+@media (max-width: 992px) {
+  .products-container {
+    grid-template-columns: 1fr; /* Una sola columna */
+  }
+
+  .search-bar,
+  .products-grid,
+  .cart {
+    grid-column: 1 / -1; /* Todos ocupan el ancho completo */
+  }
+
+  .cart {
+    position: static; /* El carrito ya no es pegajoso */
+    margin-top: 2rem;
+  }
+}
+
+/* === ESTILO PARA IMAGEN DE PRODUCTO === */
+
+.product-card-img {
+  width: 100%;
+  height: 180px; /* Altura fija para todas las imágenes */
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-bottom: 1rem; /* Espacio entre la imagen y el título */
+}
+
+/* Estilo para el input de tipo file */
+.form-group input[type="file"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* === ESTILOS UNIFICADOS PARA INPUTS, SELECT Y TEXTAREA === */
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="number"], /* Añadido para el campo de precio */
+.form-group select,
+.form-group textarea { /* Añadido para el campo de descripción */
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Asegura la misma fuente */
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Estilos específicos para textarea */
+.form-group textarea {
+  resize: vertical; /* Permite al usuario cambiar la altura */
+  min-height: 80px;
+}
+
+/* Efecto de foco para todos los campos */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #1abc9c; /* Color de acento principal */
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.2);
+}
+
+/* Estilo para enlaces adicionales en el formulario */
+.form-links {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-links a {
+  color: #555;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.form-links a:hover {
+  color: #1abc9c;
+  text-decoration: underline;
+}
+
+/* === ESTILOS PARA LA TABLA DE PRODUCTOS (ViewSales) === */
+
+.table-container {
+  max-width: 95%; /* <-- ¡Este es el cambio clave! */
+  margin: auto;
+  padding: 2rem;
+  padding-top: 80px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.table-container h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+/* Wrapper to allow horizontal scrolling on small screens */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Removes space between cells */
+  text-align: left;
+}
+
+table th,
+table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  vertical-align: middle; /* Aligns content vertically */
+}
+
+table th {
+  background-color: #f4f7f6;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Zebra-striping for readability */
+}
+
+table tbody tr:hover {
+  background-color: #eef8f6; /* Highlight on hover */
+}
+
+/* Styling for product image in the table */
+.table-product-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.table-img-placeholder {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e0e0e0;
+  color: #777;
+  font-size: 0.8rem;
+  border-radius: 8px;
+}
+
+.no-products-message {
+  text-align: center;
+  padding: 3rem;
+  color: #777;
+}
+
+/* === ESTILOS PARA BOTONES DE ACCIÓN EN LA TABLA === */
+
+.action-buttons {
+  display: flex;
+  flex-direction: column; /* Alinea los botones uno sobre otro */
+  gap: 8px; /* Espacio entre los botones */
+}
+
+.action-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  text-align: center;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px); /* Efecto de elevación al pasar el cursor */
+}
+
+/* Botón de Enviar (azul) */
+.send-btn {
+  background-color: #3498db;
+}
+
+.send-btn:hover {
+  background-color: #2980b9;
+}
+
+/* Botón de Estatus (verde) */
+.status-btn {
+  background-color: #27ae60;
+}
+
+.status-btn:hover {
+  background-color: #229954;
+}
+
+/* Estilo para el contenedor principal ANCHO, solo para la tabla de ventas */
+.main-container-wide {
+  align-items: flex-start; /* Alinea el contenido arriba */
+  padding-top: 80px;      /* Mantiene el espacio para el navbar */
+  padding-bottom: 2rem;
+}
+
+
+/* === ESTILOS PARA EL BOTÓN DE VENTAS Y LA VENTANA MODAL === */
+
+/* Estilo para el botón de "Ventas" (naranja) */
+.action-btn.sales-btn {
+  background-color: #e67e22; /* Naranja */
+  width: 120px; /* Ancho fijo para consistencia */
+}
+
+.action-btn.sales-btn:hover {
+  background-color: #d35400;
+}
+
+/* Fondo oscuro semitransparente para la modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001; /* Asegura que esté por encima de otros elementos */
+}
+
+/* Contenido de la ventana modal */
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+/* Botón para cerrar la modal */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #777;
+}
+
+/* Lista de ventas dentro de la modal */
+.sales-list {
+  list-style: none;
+  padding: 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.sales-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+  color: #555;
+}
+
+.sales-list li:last-child {
+  border-bottom: none;
+}
+
+/* === ESTILOS ADICIONALES PARA MODAL DE VENTAS === */
+
+/* Contenedor para cada item en la lista de ventas */
+.sale-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.sale-item:last-child {
+  border-bottom: none;
+}
+
+/* Detalles de la venta (fecha, precio) */
+.sale-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Etiqueta para indicar que un producto ya fue enviado */
+.shipping-status {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #27ae60; /* Verde */
+}
+
+/* Estilo para el botón "Enviar" dentro de la modal */
+.action-btn.send-btn {
+  background-color: #3498db; /* Azul */
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+/* --- Formulario de Envío --- */
+.shipping-form {
+  margin-top: 1.5rem;
+}
+
+.shipping-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.shipping-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.shipping-form select,
+.shipping-form input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* Contenedor para los botones del formulario (Cancelar, Guardar) */
+.shipping-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Botón secundario (Cancelar) */
+.btn-secondary {
+  padding: 0.8rem 1.2rem;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-secondary:hover {
+  background-color: #e0e0e0;
+}
+
+
+/* === ESTILOS PARA LA PÁGINA "MIS COMPRAS" === */
+.purchase-card {
+  background-color: #fff;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+.purchase-header {
+  background-color: #f4f7f6;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #555;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.purchase-items {
+  padding: 1.5rem;
+}
+
+.purchase-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.purchase-item:last-child {
+  margin-bottom: 0;
+}
+
+.purchase-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.purchase-item-details h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.purchase-item-details p {
+  margin: 0;
+  color: #555;
+}
+
+.shipping-status-customer {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.shipping-status-pending {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #e67e22;
+  font-weight: 500;
+}
+
+/* === ESTILOS ADICIONALES PARA CARRITO DE COMPRAS === */
+
+/* Actualización al item del carrito para mejor alineación */
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto; /* Nombre, Controles, Precio, Botón de borrar */
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.cart-item-price {
+  font-weight: 500;
+  width: 70px; /* Ancho fijo para alinear precios */
+  text-align: right;
+}
+
+/* Controles de cantidad (+/-) */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f4f7f6;
+  border-radius: 6px;
+}
+
+.quantity-controls button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.2rem 0.6rem;
+  color: #555;
+}
+
+.quantity-controls span {
+  font-weight: 500;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Botón para remover item (✖) */
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.cart-item-remove:hover {
+  color: #c0392b;
+}
+
+/* === ESTILOS PARA EL BOTÓN DE RASTREO === */
+
+.shipping-info {
+  display: flex;
+  flex-direction: column; /* Pone el texto arriba y el botón abajo */
+  align-items: flex-start;
+  gap: 8px; /* Espacio entre el texto y el botón */
+  margin-top: 0.5rem;
+}
+
+.track-btn {
+  background-color: #3498db; /* Azul */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.track-btn:hover {
+  background-color: #2980b9;
+}
+
+/* === ESTILOS PARA EL PANEL DE PERFIL === */
+
+.profile-dashboard {
+  width: 100%;
+}
+
+/* Encabezado con avatar e información del usuario */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.profile-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%; /* Hace la imagen circular */
+  object-fit: cover;
+}
+
+.profile-info h3 {
+  margin: 0 0 4px 0;
+  color: #2c3e50;
+  font-size: 1.5rem;
+}
+
+.profile-info p {
+  margin: 0;
+  color: #555;
+}
+
+/* Rejilla para las tarjetas de opciones */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Estilo individual de cada tarjeta */
+.profile-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  text-decoration: none; /* Quita el subrayado de los enlaces */
+  color: inherit;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+  font-size: 2rem; /* Tamaño del ícono */
+  color: #3498db; /* Color azul para los íconos */
+  margin-top: 4px;
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.card-description {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #777;
+  line-height: 1.5;
+}
+
+/* === ESTILOS PARA LA PÁGINA DE EDICIÓN DE PERFIL === */
+
+.profile-edit-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.status-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #27ae60;
+  margin: 2rem 0;
+}
+
+.status-header .check-icon {
+  font-size: 1.2rem;
+}
+
+.profile-section-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.edit-btn {
+  background-color: #ecf0f1;
+  color: #3498db;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.edit-btn:hover {
+  background-color: #e0e6e8;
+}
+
+.section-content .data-pair {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  color: #555;
+}
+
+.section-content .data-pair span {
+  font-size: 0.95rem;
+}
+.section-content .data-pair strong {
+  font-weight: 500;
+  color: #333;
+}
+
+.section-edit-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* === ESTILOS PARA LA PÁGINA DE SEGURIDAD === */
+
+.security-settings-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.security-settings-container h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Alerta de advertencia */
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.alert.alert-warning {
+  background-color: #fff8e1;
+  color: #f57c00;
+  border: 1px solid #ffecb3;
+}
+
+/* Lista de métodos de verificación */
+.verification-method-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.verification-method-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.3s;
+}
+
+.verification-method-item:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.item-icon-wrapper {
+  position: relative;
+}
+
+.item-icon {
+  font-size: 2.5rem; /* Ícono principal grande */
+  color: #555;
+}
+
+.status-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -4px;
+  background-color: white;
+  border-radius: 50%;
+  font-size: 1.2rem;
+}
+
+.status-badge.status-verified {
+  color: #27ae60; /* Verde */
+}
+
+.status-badge.status-action-needed {
+  color: #e67e22; /* Naranja */
+}
+
+.item-text {
+  flex-grow: 1;
+}
+
+.item-title {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.item-subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.item-chevron {
+  color: #aaa;
+  font-size: 1.5rem;
+}
+
+/* === ESTILOS PARA LA PÁGINA "DATOS DE TU CUENTA" === */
+
+/* Para el texto de "Validado" */
+.validated-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #27ae60; /* Verde */
+  margin-bottom: 0.5rem;
+}
+
+.validated-badge .material-icons {
+  font-size: 1.1rem;
+}
+
+/* Estilo para el texto principal de cada sección (email, teléfono, etc.) */
+.data-display {
+  font-size: 1rem;
+  color: #333;
+  margin: 0;
+  padding-bottom: 1.5rem; /* Espacio para que el botón "Modificar" no quede pegado */
+}
+
+/* === ESTILOS PARA LA PÁGINA "TARJETAS" === */
+
+.cards-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cards-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.25rem;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card-logo {
+  width: 48px;
+  height: auto;
+}
+
+.card-details {
+  flex-grow: 1;
+}
+
+.card-details h4 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.card-details p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #3498db;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.add-card-form .form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.add-card-form .form-row .form-group {
+  flex: 1;
+}
+
+/* === ESTILOS PARA ÍCONO DE TARJETA POR OMISIÓN === */
+
+/* Contenedor circular para el logo o ícono */
+.card-logo-wrapper {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  flex-shrink: 0; /* Evita que el círculo se encoja */
+}
+
+/* Ajuste al logo para que quepa en el círculo */
+.card-logo {
+  width: 100%;
+  height: auto;
+}
+
+/* Estilo para el ícono de Material Icons */
+.default-card-icon {
+  font-size: 2rem; /* 32px */
+  color: #9e9e9e; /* Un color gris neutro */
+}
+
+/* === ESTILOS PARA LA PÁGINA "DIRECCIONES" === */
+
+.address-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.address-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+}
+
+.address-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.1rem;
+}
+
+.address-card p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.add-address-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3498db;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  cursor: pointer;
+}
