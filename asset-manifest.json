@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/trustmarket-app/static/css/main.0a3e2493.css",
+    "main.js": "/trustmarket-app/static/js/main.07574951.js",
+    "static/media/logo.jpg": "/trustmarket-app/static/media/logo.88355e681d950a6cb7af.jpg",
+    "index.html": "/trustmarket-app/index.html",
+    "main.0a3e2493.css.map": "/trustmarket-app/static/css/main.0a3e2493.css.map",
+    "main.07574951.js.map": "/trustmarket-app/static/js/main.07574951.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0a3e2493.css",
+    "static/js/main.07574951.js"
+  ]
+}
