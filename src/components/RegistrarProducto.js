@@ -31,7 +31,7 @@ const RegisterProduct = () => {
     localStorage.setItem('products', JSON.stringify(products));
 
     alert(`Producto "${productName}" registrado con éxito!`);
-    navigate('/explore-products');
+    navigate('/view-sales');
   };
 
   return (
