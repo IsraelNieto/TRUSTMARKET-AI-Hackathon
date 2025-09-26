@@ -1,7 +1,7 @@
 {
   "name": "trustmarket-app",
   "version": "0.1.0",
-  "homepage": "https://IsraelNieto.github.io/trustmarket-app",
+  "homepage": "https://IsraelNieto.github.io/TRUSTMARKET-AI-Hackathon",
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.20.7",
