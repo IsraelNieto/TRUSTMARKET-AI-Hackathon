@@ -1,6 +1,7 @@
 {
   "name": "trustmarket-app",
   "version": "0.1.0",
+  "homepage": "https://IsraelNieto.github.io/trustmarket-app",
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.20.7",
@@ -17,6 +18,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -28,8 +31,9 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
+      ">0.5%",
       "not dead",
+      "not ie 11",
       "not op_mini all"
     ],
     "development": [
