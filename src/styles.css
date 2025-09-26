@@ -106,6 +106,10 @@ body {
   flex-direction: column;
   cursor: pointer;
   gap: 5px;
+  background: #2c3e50; /* match navbar background */
+  border: 1px solid #2c3e50;
+  padding: 6px 8px;
+  border-radius: 6px;
 }
 
 .navbar-bar {
@@ -114,17 +118,30 @@ body {
   background: #fff;
 }
 
-@media (max-width: 768px) {
+.navbar-toggle:hover,
+.navbar-toggle:focus {
+  background: #34495e;
+  outline: none;
+}
+
+/* Hide mobile-only actions by default (desktop/tablet) */
+.navbar-actions-mobile {
+  display: none;
+}
+
+@media (max-width: 970px) {
   .navbar-list {
     position: absolute;
     top: 70px;
     right: 0;
     background: #2c3e50;
     flex-direction: column;
-    width: 200px;
+    width: 260px;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     padding: 1rem;
+    max-height: calc(100vh - 70px);
+    overflow-y: auto;
   }
 
   .navbar-list.open {
@@ -134,11 +151,28 @@ body {
   .navbar-toggle {
     display: flex;
   }
+
+  /* Hide desktop auth buttons on mobile; use drawer versions */
+  .navbar-buttons {
+    display: none;
+  }
+
+  .navbar-actions-mobile {
+    display: block;
+    margin-top: 0.5rem;
+    list-style: none;
+  }
+
+  .navbar-actions-mobile-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
 }
 
 /* === HERO SLIDER === */
 .hero {
-  margin-top: 70px; /* compensar navbar fijo */
+  margin-top: 20px; /* compensar navbar fijo */
 }
 
 .hero-slider {
@@ -169,6 +203,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.9;
 }
 
 .slide-text {
@@ -177,7 +212,7 @@ body {
   left: 10%;
   color: #fff;
   max-width: 500px;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   padding: 1.5rem;
   border-radius: 8px;
 }
@@ -206,7 +241,7 @@ body {
 .next {
   position: absolute;
   top: 50%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   border: none;
   color: white;
   font-size: 2rem;
@@ -214,13 +249,20 @@ body {
   cursor: pointer;
   transform: translateY(-50%);
   border-radius: 50%;
+  width: 60px;
+  height: 60px;
 }
 
-.prev { left: 20px; }
-.next { right: 20px; }
+.prev {
+  left: 20px;
+}
+.next {
+  right: 20px;
+}
 
-.prev:hover, .next:hover {
-  background: rgba(0,0,0,0.7);
+.prev:hover,
+.next:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 /* === BANNER EXTRA CLIENTES === */
@@ -303,7 +345,7 @@ body {
   color: white;
   padding: 15px 20px;
   border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
   max-width: 280px;
   text-align: center;
 }
@@ -351,7 +393,7 @@ body {
   border-radius: 50% !important;
   width: 60px !important;
   height: 60px !important;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.3) !important;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3) !important;
   transition: transform 0.3s ease, background-color 0.3s ease !important;
   display: flex !important;
   justify-content: center !important;
@@ -380,7 +422,7 @@ body {
 /* La ventana del chat (iframe) */
 #app-chatbot-container #n8n-chat iframe {
   border-radius: 12px !important;
-  box-shadow: 0px 8px 25px rgba(0,0,0,0.2) !important;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2) !important;
   border: none !important;
   opacity: 0;
   transform: translateY(20px);
@@ -389,7 +431,7 @@ body {
 }
 
 /* La ventana del chat cuando está abierta */
-#app-chatbot-container #n8n-chat[data-chat-open="true"] iframe {
+#app-chatbot-container #n8n-chat[data-chat-open='true'] iframe {
   opacity: 1;
   transform: translateY(0);
   visibility: visible;
@@ -405,7 +447,7 @@ body {
   color: white;
   padding: 15px 20px;
   border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
   max-width: 280px;
   text-align: center;
   animation: slideIn 0.6s ease-out;
@@ -450,7 +492,6 @@ body {
   }
 }
 
-
 /* === ESTILOS PARA LA PÁGINA DE REGISTRO === */
 
 /* Contenedor principal para centrar el formulario */
@@ -494,9 +535,9 @@ body {
 }
 
 /* Estilo unificado para inputs y select */
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="password"],
+.form-group input[type='text'],
+.form-group input[type='email'],
+.form-group input[type='password'],
 .form-group select {
   width: 100%;
   padding: 0.8rem 1rem;
@@ -542,7 +583,7 @@ body {
 
 .form-logo img {
   max-width: 150px; /* Ajusta el tamaño del logo como prefieras */
-  height: auto;     /* Mantiene la proporción de la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
 }
 
 /* Ajuste opcional para el título 'Regístrate' */
@@ -695,7 +736,6 @@ body {
   background-color: #2980b9;
 }
 
-
 /* --- Columna Derecha: Carrito de Compras --- */
 
 .cart {
@@ -799,7 +839,7 @@ body {
 }
 
 /* Estilo para el input de tipo file */
-.form-group input[type="file"] {
+.form-group input[type='file'] {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -812,7 +852,8 @@ body {
 .form-group input[type="password"],
 .form-group input[type="number"], /* Añadido para el campo de precio */
 .form-group select,
-.form-group textarea { /* Añadido para el campo de descripción */
+.form-group textarea {
+  /* Añadido para el campo de descripción */
   width: 100%;
   padding: 0.8rem 1rem;
   border: 1px solid #ccc;
@@ -978,10 +1019,9 @@ table tbody tr:hover {
 /* Estilo para el contenedor principal ANCHO, solo para la tabla de ventas */
 .main-container-wide {
   align-items: flex-start; /* Alinea el contenido arriba */
-  padding-top: 80px;      /* Mantiene el espacio para el navbar */
+  padding-top: 80px; /* Mantiene el espacio para el navbar */
   padding-bottom: 2rem;
 }
-
 
 /* === ESTILOS PARA EL BOTÓN DE VENTAS Y LA VENTANA MODAL === */
 
@@ -1139,13 +1179,12 @@ table tbody tr:hover {
   background-color: #e0e0e0;
 }
 
-
 /* === ESTILOS PARA LA PÁGINA "MIS COMPRAS" === */
 .purchase-card {
   background-color: #fff;
   border-radius: 12px;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
   overflow: hidden;
 }
 
@@ -1308,7 +1347,7 @@ table tbody tr:hover {
   padding: 1.5rem;
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
 }
 
 .profile-avatar {
@@ -1344,7 +1383,7 @@ table tbody tr:hover {
   background: #fff;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
   text-decoration: none; /* Quita el subrayado de los enlaces */
   color: inherit;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -1399,7 +1438,7 @@ table tbody tr:hover {
 .profile-section-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
 }
@@ -1500,14 +1539,14 @@ table tbody tr:hover {
   padding: 1.25rem;
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   text-decoration: none;
   color: inherit;
   transition: box-shadow 0.3s;
 }
 
 .verification-method-item:hover {
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .item-icon-wrapper {
@@ -1612,7 +1651,7 @@ table tbody tr:hover {
   padding: 1.25rem;
   background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .card-logo {
@@ -1693,7 +1732,7 @@ table tbody tr:hover {
   background-color: #fff;
   padding: 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
 }
 
 .address-card h4 {
@@ -1721,4 +1760,12 @@ table tbody tr:hover {
   border: 1px solid #e0e0e0;
   border-radius: 12px;
   cursor: pointer;
+}
+/* second section */
+
+#nosotros > h2,
+#soluciones > h2,
+#vendedores > h2,
+#contacto > h2 {
+  color: #4caf50;
 }

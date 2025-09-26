@@ -62,33 +62,33 @@ const App = () => {
   return (
     <Routes>
       {/* Las rutas ahora se anidan dentro del Layout */}
-      <Route path="/" element={<AppLayout user={user} onLogout={handleLogout} />}>
+      <Route path='/' element={<AppLayout user={user} onLogout={handleLogout} />}>
         {/* Rutas Públicas */}
         <Route index element={<Home user={user} />} />
-        <Route path="login" element={<Login onLogin={handleLogin} />} />
-        <Route path="register" element={<Register />} />
-        <Route path="forgot-password" element={<ForgotPassword />} />
-        <Route path="reset-password" element={<ResetPassword />} />
+        <Route path='login' element={<Login onLogin={handleLogin} />} />
+        <Route path='register' element={<Register />} />
+        <Route path='forgot-password' element={<ForgotPassword />} />
+        <Route path='reset-password' element={<ResetPassword />} />
 
         {/* Rutas de Cliente */}
         {user?.role === 'cliente' && (
           <>
-            <Route path="explore-products" element={<ExploreProducts />} />
-            <Route path="mis-compras" element={<MisCompras />} />
-            <Route path="perfil" element={<Perfil />} />
-            <Route path="editar-perfil" element={<EditarPerfil />} />
-            <Route path="seguridad" element={<Seguridad />} />
-            <Route path="datos-cuenta" element={<DatosCuenta />} />
-            <Route path="tarjetas" element={<Tarjetas />} />
-            <Route path="direcciones" element={<Direcciones />} />
+            <Route path='explore-products' element={<ExploreProducts />} />
+            <Route path='mis-compras' element={<MisCompras />} />
+            <Route path='perfil' element={<Perfil />} />
+            <Route path='editar-perfil' element={<EditarPerfil />} />
+            <Route path='seguridad' element={<Seguridad />} />
+            <Route path='datos-cuenta' element={<DatosCuenta />} />
+            <Route path='tarjetas' element={<Tarjetas />} />
+            <Route path='direcciones' element={<Direcciones />} />
           </>
         )}
 
         {/* Rutas de Vendedor */}
         {user?.role === 'vendedor' && (
           <>
-            <Route path="register-product" element={<RegisterProduct />} />
-            <Route path="view-sales" element={<ViewSales />} />
+            <Route path='register-product' element={<RegisterProduct />} />
+            <Route path='view-sales' element={<ViewSales />} />
           </>
         )}
       </Route>
@@ -100,7 +100,7 @@ const App = () => {
 const RootApp = () => (
   <Router>
     <App />
-    <div id="app-chatbot-container">
+    <div id='app-chatbot-container'>
       <Chatbot />
     </div>
   </Router>

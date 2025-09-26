@@ -11,7 +11,7 @@ const Chatbot = () => {
 
         // Verificamos que no se haya inicializado ya
         if (document.querySelector('#n8n-chat-container .n8n-chat-widget')) {
-            return;
+          return;
         }
 
         createChat({
@@ -20,10 +20,7 @@ const Chatbot = () => {
           mode: 'overlay',
           loadPreviousSession: true,
           defaultLanguage: 'es',
-          initialMessages: [
-            '🌱 ¡Hola! Soy EcoBot 👋, tu asistente de TRUSTMARKET AI.',
-            '¿En qué puedo asistirte hoy?',
-          ],
+          initialMessages: ['🌱 ¡Hola! Soy EcoBot 👋, tu asistente de TRUSTMARKET AI.', '¿En qué puedo asistirte hoy?'],
           i18n: {
             es: {
               title: 'EcoBot - Asistente Virtual',
@@ -56,7 +53,7 @@ const Chatbot = () => {
             launcher: {
               backgroundColor: '#1abc9c',
               iconColor: '#ffffff',
-            }
+            },
           },
         });
       } catch (error) {
@@ -68,8 +65,8 @@ const Chatbot = () => {
   }, []); // El array vacío asegura que se ejecute solo una vez
 
   return (
-    <div id="n8n-chat-container">
-      <div id="n8n-chat"></div>
+    <div id='n8n-chat-container'>
+      <div id='n8n-chat'></div>
     </div>
   );
 };
