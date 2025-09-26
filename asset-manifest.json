@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/TRUSTMARKET-AI-Hackathon/static/css/main.0a3e2493.css",
-    "main.js": "/TRUSTMARKET-AI-Hackathon/static/js/main.0b888b19.js",
+    "main.js": "/TRUSTMARKET-AI-Hackathon/static/js/main.2bc28079.js",
     "static/media/logo.jpg": "/TRUSTMARKET-AI-Hackathon/static/media/logo.88355e681d950a6cb7af.jpg",
     "index.html": "/TRUSTMARKET-AI-Hackathon/index.html",
     "main.0a3e2493.css.map": "/TRUSTMARKET-AI-Hackathon/static/css/main.0a3e2493.css.map",
-    "main.0b888b19.js.map": "/TRUSTMARKET-AI-Hackathon/static/js/main.0b888b19.js.map"
+    "main.2bc28079.js.map": "/TRUSTMARKET-AI-Hackathon/static/js/main.2bc28079.js.map"
   },
   "entrypoints": [
     "static/css/main.0a3e2493.css",
-    "static/js/main.0b888b19.js"
+    "static/js/main.2bc28079.js"
   ]
 }
